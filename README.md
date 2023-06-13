@@ -16,4 +16,6 @@ The project uses the [Fresh](https://fresh.deno.dev/) framework and the
 deno task start
 ```
 
-This will watch the project directory and restart as necessary.
+This will watch the project directory and restart as necessary. Notice that this
+runs with the `--unstable` flag, which allows us to use the (currently on beta)
+KV deno database.
