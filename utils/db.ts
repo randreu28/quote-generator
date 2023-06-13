@@ -2,6 +2,12 @@ import type { Quote } from "./types.ts";
 
 const kv = await Deno.openKv();
 
+export async function getQuote(uuid: string): Promise<Quote | null> {
+  const quote = await kv.get<Quote>(["quote", uuid]);
+
+  return quote.value;
+}
+
 export async function getQuotes(): Promise<Quote[]> {
   const quotes: Quote[] = [];
 
@@ -12,9 +18,9 @@ export async function getQuotes(): Promise<Quote[]> {
 }
 
 export async function addQuote(quote: Quote) {
-  const res = await kv.set(["quote", quote.author], quote);
+  await kv.set(["quote", quote.uuid], quote);
+}
 
-  if (!res.ok) {
-    throw Error("Failed to add quote");
-  }
+export async function deleteQuote(uuid: string) {
+  await kv.delete(["quote", uuid]);
 }
