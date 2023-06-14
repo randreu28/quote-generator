@@ -5,22 +5,24 @@
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_app.tsx";
 import * as $1 from "./routes/add-quote.tsx";
-import * as $2 from "./routes/api/auth.tsx";
-import * as $3 from "./routes/api/quote.tsx";
-import * as $4 from "./routes/api/quotes.tsx";
-import * as $5 from "./routes/index.tsx";
-import * as $6 from "./routes/login.tsx";
+import * as $2 from "./routes/api/auth/index.tsx";
+import * as $3 from "./routes/api/auth/login.tsx";
+import * as $4 from "./routes/api/auth/logout.tsx";
+import * as $5 from "./routes/api/quote.tsx";
+import * as $6 from "./routes/api/quotes.tsx";
+import * as $7 from "./routes/index.tsx";
 import * as $$0 from "./islands/QuoteBox.tsx";
 
 const manifest = {
   routes: {
     "./routes/_app.tsx": $0,
     "./routes/add-quote.tsx": $1,
-    "./routes/api/auth.tsx": $2,
-    "./routes/api/quote.tsx": $3,
-    "./routes/api/quotes.tsx": $4,
-    "./routes/index.tsx": $5,
-    "./routes/login.tsx": $6,
+    "./routes/api/auth/index.tsx": $2,
+    "./routes/api/auth/login.tsx": $3,
+    "./routes/api/auth/logout.tsx": $4,
+    "./routes/api/quote.tsx": $5,
+    "./routes/api/quotes.tsx": $6,
+    "./routes/index.tsx": $7,
   },
   islands: {
     "./islands/QuoteBox.tsx": $$0,

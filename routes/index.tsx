@@ -21,6 +21,7 @@ export default function Home({ data: { quotes, user } }: Props) {
   if (quotes.length === 0) {
     return (
       <>
+        <NavBar user={user} />
         <div class="flex justify-center items-center h-[80vh]">
           <p class="text-gray-500">There isn't any quotes yet</p>
         </div>

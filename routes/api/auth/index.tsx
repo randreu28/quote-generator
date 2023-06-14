@@ -3,7 +3,7 @@ import {
   Cookie,
   setCookie,
 } from "https://deno.land/std@0.191.0/http/cookie.ts";
-import { oauth2Client } from "../../utils/auth.ts";
+import { oauth2Client } from "../../../utils/auth.ts";
 
 export const handler: Handlers = {
   async GET(req) {

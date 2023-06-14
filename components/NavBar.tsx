@@ -33,7 +33,7 @@ export default function NavBar({ user }: Props) {
         </p>
         <a
           class="text-sm text-blue-500 hover:underline"
-          href={user ? "/logout" : "/login"}
+          href={user ? "/api/auth/logout" : "/api/auth/login"}
         >
           {user ? "Log out" : "Log in"}
         </a>
