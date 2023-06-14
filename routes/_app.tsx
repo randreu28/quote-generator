@@ -13,16 +13,10 @@ export default function App({ Component }: AppProps) {
         />
         <link rel="icon" href="logo.svg" />
       </Head>
-      <nav class="flex p-5 justify-between gap-5 bg-gray-200">
-        <h1 class="font-bold">Quote generator</h1>
 
-        <span class="gap-5 flex">
-          <a href="/">Quotes</a>
-          <a href="/add-quote">Add a quote</a>
-        </span>
-      </nav>
-
-      <Component />
+      <div class="px-4 py-8 mx-auto max-w-screen-md">
+        <Component />
+      </div>
     </>
   );
 }
