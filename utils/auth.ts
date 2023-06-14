@@ -1,5 +1,6 @@
 import { OAuth2Client } from "https://deno.land/x/oauth2_client@v1.0.0/mod.ts";
 import { User } from "./types.ts";
+import { getCookies } from "https://deno.land/std@0.191.0/http/cookie.ts";
 
 if (!Deno.env.has("GH_CLIENT_ID") || !Deno.env.has("GH_CLIENT_ID")) {
   throw Error("Missing Github enviroment variables");
@@ -16,14 +17,24 @@ export const oauth2Client = new OAuth2Client({
   },
 });
 
-export async function getAuthenticatedUser(token: string): Promise<User> {
+export async function getAuthenticatedUser(
+  headers: Headers,
+): Promise<User | null> {
+  const cookies = getCookies(headers);
+  const token = cookies["session"] as string | undefined;
+
+  if (!token) {
+    return null;
+  }
+
   const resp = await fetch("https://api.github.com/user", {
     headers: {
       Authorization: `token ${token}`,
     },
   });
+
   if (!resp.ok) {
-    throw new Error("Failed to fetch user");
+    return null;
   }
   return await resp.json();
 }
