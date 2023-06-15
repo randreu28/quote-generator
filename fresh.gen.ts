@@ -8,6 +8,7 @@ import * as $1 from "./routes/api/auth/index.tsx";
 import * as $2 from "./routes/api/auth/login.tsx";
 import * as $3 from "./routes/api/auth/logout.tsx";
 import * as $4 from "./routes/index.tsx";
+import * as $$0 from "./islands/BigQuote.tsx";
 
 const manifest = {
   routes: {
@@ -17,7 +18,9 @@ const manifest = {
     "./routes/api/auth/logout.tsx": $3,
     "./routes/index.tsx": $4,
   },
-  islands: {},
+  islands: {
+    "./islands/BigQuote.tsx": $$0,
+  },
   baseUrl: import.meta.url,
   config,
 };

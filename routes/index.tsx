@@ -1,12 +1,13 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import NavBar from "../components/NavBar.tsx";
+import BigQuote from "../islands/BigQuote.tsx";
 import { getQuotes } from "../utils/api.ts";
 import { getAuthenticatedUser } from "../utils/auth.ts";
-import { Quote, User } from "../utils/types.ts";
+import { FullQuote, User } from "../utils/types.ts";
 
 type PageData = {
   user: User | null;
-  quotes: Quote[] | null;
+  quotes: FullQuote[] | null;
 };
 
 export const handler: Handlers = {
@@ -28,10 +29,15 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
       </>
     );
   }
+
   return (
     <>
       <NavBar user={user} />
-      {quotes.map((quote) => {
+      <BigQuote {...quotes[0]} />
+      {quotes.map((quote, index) => {
+        if (index === 0) {
+          return;
+        }
         return <p class="p-5">{quote.quote}</p>;
       })}
     </>

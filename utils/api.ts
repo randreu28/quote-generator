@@ -1,4 +1,5 @@
-import { Quote, QuoteCategory } from "./types.ts";
+import { getQuoteLikes } from "./db.ts";
+import { FullQuote, Quote, QuoteCategory } from "./types.ts";
 
 if (!Deno.env.has("API_KEY")) {
   throw Error("Missing api key in the enviroment variables");
@@ -11,7 +12,7 @@ if (!Deno.env.has("API_KEY")) {
 export async function getQuotes(
   category?: QuoteCategory,
   limit?: number,
-): Promise<Quote[] | null> {
+): Promise<FullQuote[] | null> {
   const API = new URL("https://api.api-ninjas.com/v1/quotes");
 
   if (category) {
@@ -31,5 +32,13 @@ export async function getQuotes(
   }
   const res = await rawRes.json() as Quote[];
 
-  return res;
+  const quotes: FullQuote[] = [];
+
+  for (const key in res) {
+    const quote = res[key];
+    const likes = await getQuoteLikes(quote.quote);
+    quotes.push({ ...quote, likes: likes });
+  }
+
+  return quotes;
 }

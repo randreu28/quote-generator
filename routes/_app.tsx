@@ -14,7 +14,7 @@ export default function App({ Component }: AppProps) {
         <link rel="icon" href="logo.svg" />
       </Head>
 
-      <div class="px-4 py-8 mx-auto max-w-screen-md">
+      <div class="px-4 py-8 mx-auto max-w-screen-lg">
         <Component />
       </div>
     </>
