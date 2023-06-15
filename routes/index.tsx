@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import Categories from "../components/Categories.tsx";
 import NavBar from "../components/NavBar.tsx";
 import QuoteGrid from "../components/QuoteGrid.tsx";
 import BigQuote from "../islands/BigQuote.tsx";
@@ -44,6 +45,7 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
           Explore an endless collection of quotes to match any mood, from
           inspirational to funny to everything else you ever need.
         </p>
+        <Categories />
         <QuoteGrid quotes={quotes} user={user} />
       </div>
     </>

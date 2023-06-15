@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import Categories from "../components/Categories.tsx";
 import NavBar from "../components/NavBar.tsx";
 import QuoteGrid from "../components/QuoteGrid.tsx";
 import BigQuote from "../islands/BigQuote.tsx";
@@ -42,13 +43,14 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
       <BigQuote quote={quotes[0]} user={user} />
 
       <div class="mx-auto my-auto max-w-6xl space-y-10">
-        <h2 class="mx-auto text-5xl font-bold text-center max-w-xl md:max-w-3xl">
-          Discover More Quotes
+        <h2 class="mx-auto text-5xl font-bold text-center max-w-xl md:max-w-3xl capitalize">
+          Discover More {quotes[0].category} Quotes
         </h2>
         <p class="mx-auto text-center text-lg font-regular max-w-xl md:max-w-3xl">
           Explore an endless collection of quotes to match any mood, from
           inspirational to funny to everything else you ever need.
         </p>
+        <Categories />
         <QuoteGrid quotes={quotes} user={user} />
       </div>
     </>
