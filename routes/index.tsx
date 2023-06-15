@@ -33,7 +33,7 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
   return (
     <>
       <NavBar user={user} />
-      <BigQuote {...quotes[0]} />
+      <BigQuote quote={quotes[0]} user={user} />
       {quotes.map((quote, index) => {
         if (index === 0) {
           return;
