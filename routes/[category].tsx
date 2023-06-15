@@ -44,7 +44,9 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
 
       <div class="mx-auto my-auto max-w-6xl space-y-10">
         <h2 class="mx-auto text-5xl font-bold text-center max-w-xl md:max-w-3xl capitalize">
-          Discover More {quotes[0].category} Quotes
+          Discover More <span class="text-blue-500">{quotes[0].category}</span>
+          {" "}
+          Quotes
         </h2>
         <p class="mx-auto text-center text-lg font-regular max-w-xl md:max-w-3xl">
           Explore an endless collection of quotes to match any mood, from
