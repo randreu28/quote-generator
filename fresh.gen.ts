@@ -10,6 +10,7 @@ import * as $3 from "./routes/api/auth/logout.tsx";
 import * as $4 from "./routes/api/toggle-like.tsx";
 import * as $5 from "./routes/index.tsx";
 import * as $$0 from "./islands/BigQuote.tsx";
+import * as $$1 from "./islands/SmallQuote.tsx";
 
 const manifest = {
   routes: {
@@ -22,6 +23,7 @@ const manifest = {
   },
   islands: {
     "./islands/BigQuote.tsx": $$0,
+    "./islands/SmallQuote.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,

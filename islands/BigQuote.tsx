@@ -1,5 +1,4 @@
-import axiod from "https://deno.land/x/axiod@0.26.2/mod.ts";
-import { useState } from "https://esm.sh/preact@10.13.1/hooks";
+import { useToggleLike } from "../utils/hooks.ts";
 import { FullQuote, User } from "../utils/types.ts";
 
 type Props = {
@@ -8,27 +7,10 @@ type Props = {
 };
 
 export default function BigQuote({ quote, user }: Props) {
-  const hasBeenLiked = user ? quote.likes.includes(user.name) : false;
-  const [isLiked, setIsLiked] = useState<boolean>(hasBeenLiked);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  async function toggleLike() {
-    if (user === null) {
-      alert("You must be registered to like quotes");
-      return;
-    }
-
-    setIsLoading(true);
-    const res = await axiod.post("/api/toggle-like", quote);
-
-    if (res.status === 200) {
-      setIsLoading(false);
-      setIsLiked(!isLiked);
-    } else {
-      setIsLoading(false);
-      alert("An error occured. Please try again later");
-    }
-  }
+  const { isLiked, isLoading, toggleLike } = useToggleLike({
+    quote: quote,
+    user: user,
+  });
 
   return (
     <div class="flex px-8 h-screen !max-w-7xl">
