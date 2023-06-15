@@ -2,9 +2,10 @@ import { User } from "../utils/types.ts";
 
 type Props = {
   user: User | null;
+  showLikedQuotesLink?: boolean;
 };
 
-export default function NavBar({ user }: Props) {
+export default function NavBar({ user, showLikedQuotesLink = true }: Props) {
   return (
     <nav class="space-y-1">
       <div class="flex justify-between items-center">
@@ -40,6 +41,21 @@ export default function NavBar({ user }: Props) {
           {user ? "Log out" : "Log in"}
         </a>
       </div>
+      {(user) && (
+        <>
+          {showLikedQuotesLink
+            ? (
+              <a class="text-sm text-blue-500 hover:underline" href="/liked">
+                See your liked quotes
+              </a>
+            )
+            : (
+              <a class="text-sm text-blue-500 hover:underline" href="/">
+                Go back
+              </a>
+            )}
+        </>
+      )}
     </nav>
   );
 }
