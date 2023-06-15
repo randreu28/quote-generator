@@ -36,8 +36,8 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
       <NavBar user={user} />
       <BigQuote quote={quotes[0]} user={user} />
 
-      <div class="mx-auto my-auto max-w-6xl">
-        <h2 class="mx-auto text-5xl font-bold text-center mb-6 max-w-xl md:max-w-3xl mt-8">
+      <div class="mx-auto my-auto max-w-6xl space-y-10">
+        <h2 class="mx-auto text-5xl font-bold text-center max-w-xl md:max-w-3xl">
           Discover More Quotes
         </h2>
         <p class="mx-auto text-center text-lg font-regular max-w-xl md:max-w-3xl">

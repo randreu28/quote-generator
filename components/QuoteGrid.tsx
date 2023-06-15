@@ -8,7 +8,7 @@ type Props = {
 
 export default function QuoteGrid({ quotes, user }: Props) {
   return (
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-12 py-8 lg:py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-12">
       {quotes.map((quote, index) => {
         if (index === 0) {
           return;
