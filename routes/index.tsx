@@ -46,7 +46,7 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
           inspirational to funny to everything else you ever need.
         </p>
         <Categories />
-        <QuoteGrid quotes={quotes} user={user} />
+        <QuoteGrid skipFirst quotes={quotes} user={user} />
       </div>
     </>
   );
