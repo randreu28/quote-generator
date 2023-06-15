@@ -30,7 +30,7 @@ export default function BigQuote({ quote, user }: Props) {
         </p>
         <div class="text-center">
           <a
-            href="/kindness"
+            href={`/${quote.category}`}
             class="bg-gray-200 hover:bg-black text-black hover:text-white font-semibold px-4 p-2 rounded-full mx-auto max-w-screen-md text-center text-sm capitalize"
           >
             {quote.category} Quote
