@@ -9,8 +9,8 @@ import * as $2 from "./routes/api/auth/index.tsx";
 import * as $3 from "./routes/api/auth/login.tsx";
 import * as $4 from "./routes/api/auth/logout.tsx";
 import * as $5 from "./routes/api/toggle-like.tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/liked.tsx";
+import * as $6 from "./routes/favorite-quotes.tsx";
+import * as $7 from "./routes/index.tsx";
 import * as $$0 from "./islands/BigQuote.tsx";
 import * as $$1 from "./islands/SmallQuote.tsx";
 
@@ -22,8 +22,8 @@ const manifest = {
     "./routes/api/auth/login.tsx": $3,
     "./routes/api/auth/logout.tsx": $4,
     "./routes/api/toggle-like.tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/liked.tsx": $7,
+    "./routes/favorite-quotes.tsx": $6,
+    "./routes/index.tsx": $7,
   },
   islands: {
     "./islands/BigQuote.tsx": $$0,

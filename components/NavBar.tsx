@@ -45,7 +45,10 @@ export default function NavBar({ user, showLikedQuotesLink = true }: Props) {
         <>
           {showLikedQuotesLink
             ? (
-              <a class="text-sm text-blue-500 hover:underline" href="/liked">
+              <a
+                class="text-sm text-blue-500 hover:underline"
+                href="/favorite-quotes"
+              >
                 See your liked quotes
               </a>
             )
