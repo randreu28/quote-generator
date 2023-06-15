@@ -8,7 +8,9 @@ export default function NavBar({ user }: Props) {
   return (
     <nav class="space-y-1">
       <div class="flex justify-between items-center">
-        <h1 class="text-4xl font-bold">Quote generator</h1>
+        <a class="text-4xl font-bold hover:underline" href="/">
+          Quote generator
+        </a>
         <a
           href="https://github.com/randreu28/quote-generator"
           class="text-sm text-blue-500 hover:underline text-right"
