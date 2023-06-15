@@ -1,4 +1,4 @@
-import type { FullQuote } from "./types.ts";
+import type { FullQuote, User } from "./types.ts";
 
 const kv = await Deno.openKv();
 
@@ -12,4 +12,18 @@ export async function getQuoteLikes(
   }
 
   return likes.value;
+}
+
+export function toggleDbLike(quote: FullQuote, user: User) {
+  const newValue = quote.likes;
+
+  const index = newValue.indexOf(user.name);
+
+  if (index > -1) {
+    newValue.splice(index, 1);
+  } else {
+    newValue.push(user.name);
+  }
+
+  kv.set(["likes", quote.quote], newValue);
 }

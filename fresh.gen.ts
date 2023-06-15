@@ -7,7 +7,8 @@ import * as $0 from "./routes/_app.tsx";
 import * as $1 from "./routes/api/auth/index.tsx";
 import * as $2 from "./routes/api/auth/login.tsx";
 import * as $3 from "./routes/api/auth/logout.tsx";
-import * as $4 from "./routes/index.tsx";
+import * as $4 from "./routes/api/toggle-like.tsx";
+import * as $5 from "./routes/index.tsx";
 import * as $$0 from "./islands/BigQuote.tsx";
 
 const manifest = {
@@ -16,7 +17,8 @@ const manifest = {
     "./routes/api/auth/index.tsx": $1,
     "./routes/api/auth/login.tsx": $2,
     "./routes/api/auth/logout.tsx": $3,
-    "./routes/index.tsx": $4,
+    "./routes/api/toggle-like.tsx": $4,
+    "./routes/index.tsx": $5,
   },
   islands: {
     "./islands/BigQuote.tsx": $$0,
