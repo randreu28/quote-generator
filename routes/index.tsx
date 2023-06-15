@@ -1,7 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import NavBar from "../components/NavBar.tsx";
+import QuoteGrid from "../components/QuoteGrid.tsx";
 import BigQuote from "../islands/BigQuote.tsx";
-import SmallQuote from "../islands/SmallQuote.tsx";
 import { getQuotes } from "../utils/api.ts";
 import { getAuthenticatedUser } from "../utils/auth.ts";
 import { FullQuote, User } from "../utils/types.ts";
@@ -44,15 +44,7 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
           Explore an endless collection of quotes to match any mood, from
           inspirational to funny to everything else you ever need.
         </p>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-12 py-8 lg:py-12">
-          {quotes.map((quote, index) => {
-            if (index === 0) {
-              return;
-            }
-
-            return <SmallQuote quote={quote} user={user} />;
-          })}
-        </div>
+        <QuoteGrid quotes={quotes} user={user} />
       </div>
     </>
   );
