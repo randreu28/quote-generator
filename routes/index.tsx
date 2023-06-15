@@ -1,6 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import NavBar from "../components/NavBar.tsx";
 import BigQuote from "../islands/BigQuote.tsx";
+import SmallQuote from "../islands/SmallQuote.tsx";
 import { getQuotes } from "../utils/api.ts";
 import { getAuthenticatedUser } from "../utils/auth.ts";
 import { FullQuote, User } from "../utils/types.ts";
@@ -34,12 +35,25 @@ export default function Home({ data: { user, quotes } }: PageProps<PageData>) {
     <>
       <NavBar user={user} />
       <BigQuote quote={quotes[0]} user={user} />
-      {quotes.map((quote, index) => {
-        if (index === 0) {
-          return;
-        }
-        return <p class="p-5">{quote.quote}</p>;
-      })}
+
+      <div class="mx-auto my-auto max-w-6xl">
+        <h2 class="mx-auto text-5xl font-bold text-center mb-6 max-w-xl md:max-w-3xl mt-8">
+          Discover More Quotes
+        </h2>
+        <p class="mx-auto text-center text-lg font-regular max-w-xl md:max-w-3xl">
+          Explore an endless collection of quotes to match any mood, from
+          inspirational to funny to everything else you ever need.
+        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-8 lg:gap-y-12 py-8 lg:py-12">
+          {quotes.map((quote, index) => {
+            if (index === 0) {
+              return;
+            }
+
+            return <SmallQuote quote={quote} user={user} />;
+          })}
+        </div>
+      </div>
     </>
   );
 }
